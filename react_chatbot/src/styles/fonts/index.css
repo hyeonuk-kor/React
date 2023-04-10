@@ -1,0 +1,21 @@
+/* index.css */
+
+/* @font-face {
+    font-family: 'GmarketSans';
+    src: url('./GmarketSansTTFMedium.ttf') format('truetype'),
+    url('./GmarketSansTTFLight.ttf') format('truetype'),
+    url('./GmarketSansTTFBold.ttf') format('truetype');
+  } */
+
+  
+  @font-face {
+    font-family: "KBFG";
+    src: 
+    /* url('./KBFGDisplayB.ttf') format('truetype'),  */
+         url('./KBFGDisplayL.ttf') format('truetype'),
+         url('./KBFGDisplayM.ttf') format('truetype'),
+     url('./KBFGDisplayMI.ttf') format('truetype'),
+    url('./KBFGTextB.ttf') format('truetype'),
+     url('./KBFGTextL.ttf') format('truetype'),
+    url('./KBFGTextM.ttf') format('truetype');
+}
