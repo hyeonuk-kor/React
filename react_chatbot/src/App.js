@@ -1,5 +1,5 @@
 import "./App.css";
-import SimpleForm from "./SimpleForm";
+import SimpleForm from "./components/SimpleForm";
 function App() {
   return (
     <div className="App">

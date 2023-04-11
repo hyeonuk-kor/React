@@ -6,7 +6,7 @@ const Header = () => {
       <h2
         className="rsc-header-title"
         style={{
-          background: "#FAB809",
+          background: "#B9A053",
           margin: "0",
           padding: "0 auto",
           textAlign: "center",
