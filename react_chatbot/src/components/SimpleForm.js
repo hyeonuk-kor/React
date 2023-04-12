@@ -8,13 +8,13 @@ import useWindowSize from "./useWindowSize";
 
 const theme = {
   background: "#f5f8fb",
-  headerBgColor: "#B97A57",
+  headerBgColor: "#E1A537",
   headerFontColor: "#fff",
   headerFontSize: "15px",
-  botBubbleColor: "#FAB809",
-  botFontColor: "#fff",
+  botBubbleColor: "#FFF44F",
+  botFontColor: "black",
   userBubbleColor: "#fff",
-  userFontColor: "#4a4a4a",
+  userFontColor: "black",
 };
 
 const bubbleStyle = {
@@ -30,7 +30,7 @@ const bubbleStyle = {
   },
   bot: {
     backgroundColor: "#FAB809",
-    color: "#fff",
+    color: "black",
     borderRadius: 10,
     padding: 10,
   },

@@ -6,14 +6,14 @@ const Header = () => {
       <h2
         className="rsc-header-title"
         style={{
-          background: "#B9A053",
+          background: "#FAB809",
           margin: "0",
           padding: "0 auto",
           textAlign: "center",
           alignItems: "center",
           justifyContent: "center",
           display: "flex",
-          color: "white",
+          color: "black",
           height: "54px",
           border: "none", // border 스타일 제거
           width: "100%",
