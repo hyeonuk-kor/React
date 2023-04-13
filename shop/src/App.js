@@ -7,8 +7,9 @@ import { useState } from 'react';
 import data from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './routes/Detail.js';
+import axios from 'axios';
 function App() {
-  let [shoes] = useState(data);
+  let [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
   return (
     <div className="App">
@@ -40,7 +41,7 @@ function App() {
         <Route
           path="/"
           element={
-            <div>
+            <>
               <div
                 className="main-bg"
                 style={{ backgroundImage: 'url(' + 배경 + ')' }}
@@ -52,7 +53,25 @@ function App() {
                   })}
                 </div>
               </div>
-            </div>
+
+              <button
+                onClick={() => {
+                  axios
+                    .get('https://codingapple1.github.io/shop/data2.json')
+                    .then((result) => {
+                      console.log(result.data);
+                      let copy = [...shoes, ...result.data];
+                      console.log(copy);
+                      setShoes(copy);
+                    })
+                    .catch(() => {
+                      console.log('실패함 ㅅㄱ');
+                    });
+                }}
+              >
+                더보기
+              </button>
+            </>
           }
         ></Route>
         <Route
