@@ -231,7 +231,7 @@ function Step1() {
         </Col>
       </Row>
       <Row className="justify-content-center">
-        <Col md={4} xs={12} className="mb-3 d-flex justify-content-center">
+        <Col md={6} xs={12} className="mb-3 d-flex justify-content-center">
           {' '}
           {/* 변경: xs 속성 추가 */}
           <Button
