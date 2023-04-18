@@ -22,6 +22,7 @@ const bubbleStyle = {
   padding: "8px 10px",
   display: "flex",
   textAlign: "left",
+  maxWidth: "65%",
   user: {
     backgroundColor: "white",
     color: "#fff",

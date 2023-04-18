@@ -95,7 +95,7 @@ function Step1() {
       }
     } else {
       localStorage.setItem('name', form.elements.name.value);
-      navigate('/step2');
+      navigate('/step3');
     }
   };
   return (
@@ -108,13 +108,14 @@ function Step1() {
       style={{ minHeight: '100vh' }}
     >
       <Row className="d-flex justify-content-center">
-        <h2 className="text-center">자동차보험 가입 안내</h2>
-        <Col md={4} xs={12} className="mb-2">
-          <p className="text-muted" style={{ fontSize: '0.9rem' }}>
-            안녕하세요 고객님! 적절한 보험 상품을 추천하기 위해, 고객님의 개인
-            정보를 입력해주세요. 개인정보는 일체 저장되지 않으며, 보험료
-            계산/가입을 위한 용도로 조회됩니다.
-          </p>
+        <Col md={4} xs={12} className="mb-2 text-center">
+          <picture>
+            <img
+              src="/carBg2.png"
+              alt="Alternative text for the image"
+              style={{ width: '70%', height: 'auto' }}
+            />
+          </picture>
         </Col>
       </Row>
       <Row className="d-flex justify-content-center">
@@ -183,8 +184,8 @@ function Step1() {
               style={{ color: carYear === '' ? '#6c757d' : '#212529' }}
               value={carYear}
               onChange={handleCarYearChange}
-              isInvalid={invalidCarYear}
               required
+              isInvalid={invalidCarYear}
             >
               <option value="" disabled hidden>
                 연식
@@ -195,11 +196,9 @@ function Step1() {
                 </option>
               ))}
             </Form.Control>
-            {invalidCarYear === true && (
-              <Form.Control.Feedback type="invalid">
-                연식을 선택해주세요.
-              </Form.Control.Feedback>
-            )}
+            <Form.Control.Feedback type="invalid">
+              연식을 선택해주세요.
+            </Form.Control.Feedback>
           </Form.Group>
         </Col>
       </Row>
@@ -231,19 +230,18 @@ function Step1() {
         </Col>
       </Row>
       <Row className="justify-content-center">
-        <Col md={6} xs={12} className="mb-3 d-flex justify-content-center">
+        <Col md={6} xs={12} className="mb-3 d-flex justify-content-end">
           {' '}
           {/* 변경: xs 속성 추가 */}
           <Button
-            className="btn-lg btn-block text-dark"
+            className="btn-sm text-dark"
             type="submit"
             style={{
-              width: '100%',
-              maxWidth: '250px',
-              backgroundColor: '#FFA726', // 당근색 추가
+              backgroundColor: '#FFA500', // kb 색상
+              border: 'none', // 테두리 제거
             }}
           >
-            보험료 계산 / 가입
+            금액확인
           </Button>
         </Col>
       </Row>
