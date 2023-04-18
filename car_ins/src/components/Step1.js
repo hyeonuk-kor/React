@@ -95,7 +95,7 @@ function Step1() {
       }
     } else {
       localStorage.setItem('name', form.elements.name.value);
-      navigate('/step3');
+      navigate('/car-ins/step3');
     }
   };
   return (
@@ -111,7 +111,7 @@ function Step1() {
         <Col md={4} xs={12} className="mb-2 text-center">
           <picture>
             <img
-              src="/carBg2.png"
+              src={process.env.PUBLIC_URL + '/carBg2.png'}
               alt="Alternative text for the image"
               style={{ width: '70%', height: 'auto' }}
             />

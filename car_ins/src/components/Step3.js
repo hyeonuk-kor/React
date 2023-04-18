@@ -20,7 +20,7 @@ function Step3() {
       event.stopPropagation();
       form.classList.add('was-validated'); // 폼 유효성 검사 표시 추가
     } else {
-      navigate('/step2');
+      navigate('/car-ins/step2');
     }
   };
 
@@ -48,7 +48,7 @@ function Step3() {
         })}
         refund="95,497원"
         rate="8%"
-        imageSrc="/carBg1.png"
+        imageSrc={process.env.PUBLIC_URL + '/carBg1.png'}
       />
       <RadioItem
         label="15년 만기 상품"
@@ -61,7 +61,7 @@ function Step3() {
         })}
         refund="222,470원"
         rate="9%"
-        imageSrc="/carBg11.png"
+        imageSrc={process.env.PUBLIC_URL + '/carBg11.png'}
       />
       <RadioItem
         label="20년 만기 상품"
@@ -74,7 +74,7 @@ function Step3() {
         })}
         refund="380,160원"
         rate="12%"
-        imageSrc="/carBg111.png"
+        imageSrc={process.env.PUBLIC_URL + '/carBg111.png'}
       />
     </Form>
   );

@@ -20,7 +20,7 @@ function Step2() {
       event.stopPropagation();
       form.classList.add('was-validated'); // 폼 유효성 검사 표시 추가
     } else {
-      navigate('/step2');
+      navigate('/car-ins/step2');
     }
   };
 

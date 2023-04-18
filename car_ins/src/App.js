@@ -23,10 +23,10 @@ function App() {
     <Container style={styles.container}>
       <Router>
         <Routes>
-          <Route path="/" element={<Step0 />} />
-          <Route path="/step1" element={<Step1 />} />
-          <Route path="/step2" element={<Step2 />} />
-          <Route path="/step3" element={<Step3 />} />
+          <Route path="/car-ins/" element={<Step0 />} />
+          <Route path="/car-ins/step1" element={<Step1 />} />
+          <Route path="/car-ins/step2" element={<Step2 />} />
+          <Route path="/car-ins/step3" element={<Step3 />} />
         </Routes>
       </Router>
     </Container>

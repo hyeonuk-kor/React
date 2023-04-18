@@ -6,7 +6,7 @@ function Step0() {
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
-    navigate('/step1');
+    navigate('/car-ins/step1');
   };
 
   return (
@@ -25,7 +25,7 @@ function Step0() {
           <br></br>
           <picture>
             <img
-              src="/img.png"
+              src={process.env.PUBLIC_URL + '/img.png'}
               alt="Alternative text for the image"
               className="img-fluid rounded"
             />
