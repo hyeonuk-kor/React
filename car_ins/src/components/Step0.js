@@ -6,7 +6,7 @@ function Step0() {
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
-    navigate('/car-ins/step1');
+    navigate('/kbds/v2/step1');
   };
 
   return (

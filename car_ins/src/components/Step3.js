@@ -1,84 +1,50 @@
-import React, { useState } from 'react';
-import { Row, Col, Form, Button } from 'react-bootstrap';
+import React from 'react';
+import { Form, Row, Col, Button } from 'react-bootstrap';
+import Canvas from './Canvas';
 import { useNavigate } from 'react-router-dom';
-import RadioItem from './RadioItem';
-function Step3() {
+
+const Step3 = () => {
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    //   navigate('/car-ins/step3');
+  const handleSign = () => {
+    navigate('/kbds/v2/step4');
   };
 
   return (
     <Form
       name="signup"
       id="signup"
-      className="needs-validation"
+      className="needs-validation d-flex flex-column justify-content-center"
       noValidate
-      onSubmit={handleSubmit}
+      style={{ minHeight: '100vh' }}
     >
-      <Row className="align-items-center mb-4">
-        <Col md={6} className="d-flex justify-content-center">
-          <p className="h3 mb-0 text-center">나를 위한 1:1 맞춤 상품</p>
+      <Row className="justify-content-center">
+        <Col md={4} className="text-muted">
+          <h2 className="text-center">전자서명</h2>
         </Col>
       </Row>
-      <RadioItem
-        label="10년 만기 상품"
-        duration={new Date(
-          Date.now() + 10 * 365 * 24 * 60 * 60 * 1000
-        ).toLocaleDateString('ko-KR', {
-          year: '2-digit',
-          month: '2-digit',
-          day: '2-digit',
-        })}
-        refund="95,497원"
-        rate="8%"
-        imageSrc={process.env.PUBLIC_URL + '/carBg1.png'}
-      />
-      <RadioItem
-        label="15년 만기 상품"
-        duration={new Date(
-          Date.now() + 15 * 365 * 24 * 60 * 60 * 1000
-        ).toLocaleDateString('ko-KR', {
-          year: '2-digit',
-          month: '2-digit',
-          day: '2-digit',
-        })}
-        refund="222,470원"
-        rate="9%"
-        imageSrc={process.env.PUBLIC_URL + '/carBg11.png'}
-      />
-      <RadioItem
-        label="20년 만기 상품"
-        duration={new Date(
-          Date.now() + 20 * 365 * 24 * 60 * 60 * 1000
-        ).toLocaleDateString('ko-KR', {
-          year: '2-digit',
-          month: '2-digit',
-          day: '2-digit',
-        })}
-        refund="380,160원"
-        rate="12%"
-        imageSrc={process.env.PUBLIC_URL + '/carBg111.png'}
-      />
+      <Row className="justify-content-center">
+        <Col md={6} className="mb-3 d-flex justify-content-center">
+          <Canvas />
+        </Col>
+      </Row>
+
       <Row className="justify-content-center">
         <Col md={6} xs={12} className="mb-3 d-flex justify-content-end">
-          {' '}
-          {/* 변경: xs 속성 추가 */}
           <Button
             className="btn-sm text-dark"
-            type="submit"
             style={{
-              backgroundColor: '#FFA500', // kb 색상
-              border: 'none', // 테두리 제거
+              backgroundColor: '#FFA500',
+              border: 'none',
             }}
+            onClick={handleSign}
           >
-            다음
+            서명
           </Button>
         </Col>
       </Row>
     </Form>
   );
-}
+};
 
 export default Step3;

@@ -16,7 +16,7 @@ function Step2() {
     event.preventDefault();
     event.stopPropagation();
     if (selectedOption !== null) {
-      navigate('/car-ins/step3');
+      navigate('/kbds/v2/step3');
     } else {
       setShowFeedback(true);
     }
