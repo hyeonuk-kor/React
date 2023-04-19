@@ -16,7 +16,7 @@ function Step2() {
     event.preventDefault();
     event.stopPropagation();
     if (selectedOption !== null) {
-      navigate('/car-ins/step4');
+      navigate('/car-ins/step3');
     } else {
       setShowFeedback(true);
     }
