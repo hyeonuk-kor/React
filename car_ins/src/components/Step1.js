@@ -95,7 +95,7 @@ function Step1() {
       }
     } else {
       localStorage.setItem('name', form.elements.name.value);
-      navigate('/car-ins/step3');
+      navigate('/car-ins/step2');
     }
   };
   return (

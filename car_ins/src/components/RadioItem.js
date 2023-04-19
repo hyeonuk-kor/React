@@ -1,13 +1,25 @@
 import React from 'react';
-import { Row, Col, Form, Button } from 'react-bootstrap';
-function RadioItem(props) {
-  const { label, duration, refund, rate, imageSrc } = props;
+import { Row, Col } from 'react-bootstrap';
 
+function RadioItem({
+  label,
+  duration,
+  refund,
+  rate,
+  imageSrc,
+  checked,
+  onChange,
+}) {
   return (
     <label style={{ width: '100%', padding: '10px', cursor: 'pointer' }}>
       <Row className="justify-content-center align-items-center">
         <Col xs={1}>
-          <input type="radio" name="radio-group" />
+          <input
+            type="radio"
+            name="radio-group"
+            checked={checked}
+            onChange={onChange}
+          />
         </Col>
         <Col xs={7} className="text-left">
           <p style={{ fontSize: '16px', fontWeight: 'bold', margin: 0 }}>

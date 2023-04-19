@@ -3,25 +3,10 @@ import { Row, Col, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import RadioItem from './RadioItem';
 function Step3() {
-  const [invalidName, setInvalidName] = useState(null);
   const navigate = useNavigate();
-  const handleNameChange = (event) => {
-    if (event.target.value.length < 2) {
-      setInvalidName(true);
-    } else {
-      setInvalidName(false);
-    }
-  };
 
-  const handleSubmit = (event) => {
-    const form = document.getElementById('signup');
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-      form.classList.add('was-validated'); // 폼 유효성 검사 표시 추가
-    } else {
-      navigate('/car-ins/step2');
-    }
+  const handleSubmit = () => {
+    //   navigate('/car-ins/step3');
   };
 
   return (
@@ -76,6 +61,22 @@ function Step3() {
         rate="12%"
         imageSrc={process.env.PUBLIC_URL + '/carBg111.png'}
       />
+      <Row className="justify-content-center">
+        <Col md={6} xs={12} className="mb-3 d-flex justify-content-end">
+          {' '}
+          {/* 변경: xs 속성 추가 */}
+          <Button
+            className="btn-sm text-dark"
+            type="submit"
+            style={{
+              backgroundColor: '#FFA500', // kb 색상
+              border: 'none', // 테두리 제거
+            }}
+          >
+            다음
+          </Button>
+        </Col>
+      </Row>
     </Form>
   );
 }
