@@ -14,6 +14,7 @@ function App() {
   const styles = {
     container: {
       minHeight: windowSize.height,
+      padding: 0,
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
