@@ -1,6 +1,13 @@
 html,
-body,
+body {
+  font-family: 'KBFG';
+}
 #root {
   height: 100%;
   margin: 0;
+}
+
+@font-face {
+  font-family: "KBFG";
+  src: url("fonts/KBFGDisplayL.ttf");
 }
