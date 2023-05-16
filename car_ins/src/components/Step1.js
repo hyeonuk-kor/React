@@ -107,19 +107,24 @@ function Step1() {
       onSubmit={handleSubmit}
       style={{ minHeight: '100vh' }}
     >
-      <Row className="d-flex justify-content-center">
+      <Row className="">
+        <Col md={4} xs={12} className="text-center">
+          <h1>정보 기입</h1>
+        </Col>
+      </Row>
+      <Row className="d-flex justify-content-center mb-3">
         <Col md={4} xs={12} className="mb-2 text-center">
           <picture>
             <img
-              src={process.env.PUBLIC_URL + '/carBg2.png'}
+              src={process.env.PUBLIC_URL + '/디자인-11.png'}
               alt="Alternative text for the image"
-              style={{ width: '70%', height: 'auto' }}
+              style={{ width: '30%', height: 'auto' }}
             />
           </picture>
         </Col>
       </Row>
       <Row className="d-flex justify-content-center">
-        <Col md={4} xs={12} className="mb-2">
+        <Col md={4} xs={10} className="mb-2">
           <Form.Control
             type="text"
             id="name"
@@ -130,6 +135,7 @@ function Step1() {
             isInvalid={invalidName}
             isValid={invalidName === false}
             onChange={handleNameChange}
+            style={{ backgroundColor: '#F7F7F7' }}
           />
           <Form.Control.Feedback type="invalid">
             이름을 입력해주세요.
@@ -137,7 +143,7 @@ function Step1() {
         </Col>
       </Row>
       <Row className="d-flex justify-content-center">
-        <Col md={4} xs={12} className="mb-2">
+        <Col md={4} xs={10} className="mb-2">
           <Form.Control
             type="text"
             id="pnum"
@@ -151,6 +157,7 @@ function Step1() {
             isValid={invalidJumin === false}
             onKeyDown={saveJumin}
             onChange={handleJuminChange}
+            style={{ backgroundColor: '#F7F7F7' }}
           />
           <Form.Control.Feedback type="invalid">
             주민등록번호를 입력해주세요.
@@ -158,7 +165,7 @@ function Step1() {
         </Col>
       </Row>
       <Row className="d-flex justify-content-center">
-        <Col md={4} xs={12} className="mb-2">
+        <Col md={4} xs={10} className="mb-2">
           <Form.Control
             type="text"
             id="car"
@@ -168,6 +175,7 @@ function Step1() {
             isInvalid={invalidCar}
             isValid={invalidCar === false}
             onChange={handleCarChange}
+            style={{ backgroundColor: '#F7F7F7' }}
           />
           <Form.Control.Feedback type="invalid">
             자동차를 입력해주세요.
@@ -175,23 +183,35 @@ function Step1() {
         </Col>
       </Row>
       <Row className="d-flex justify-content-center">
-        <Col md={4} xs={12} className="mb-2">
+        <Col md={4} xs={10} className="mb-2">
           <Form.Group>
             <Form.Control
               as="select"
               name="car_year"
               id="year"
-              style={{ color: carYear === '' ? '#6c757d' : '#212529' }}
+              style={{
+                color: carYear === '' ? '#6c757d' : '#212529',
+                backgroundColor: '#F7F7F7',
+              }}
               value={carYear}
               onChange={handleCarYearChange}
               required
               isInvalid={invalidCarYear}
             >
-              <option value="" disabled hidden>
+              <option
+                value=""
+                disabled
+                hidden
+                style={{ backgroundColor: '#F7F7F7' }}
+              >
                 연식
               </option>
               {carYearOptions.map((year, index) => (
-                <option key={index} value={year}>
+                <option
+                  key={index}
+                  value={year}
+                  style={{ backgroundColor: '#F7F7F7' }}
+                >
                   {year}
                 </option>
               ))}
@@ -206,11 +226,11 @@ function Step1() {
         <Col md={4} xs={12} className="mb-2">
           <Form.Group
             controlId="agreement"
-            className="d-flex align-items-center"
+            className="d-flex align-items-center justify-content-center"
           >
             <Form.Check
               type="checkbox"
-              className="mr-2 custom-control-input"
+              className="custom-control-input"
               required
               checked={invalidAgreement === false}
               onChange={handleAgreementChange}
@@ -223,21 +243,28 @@ function Step1() {
             </Form.Label>
           </Form.Group>
           {invalidAgreement === true && (
-            <Form.Control.Feedback className="d-block" type="invalid">
+            <Form.Control.Feedback
+              className="d-block text-center"
+              type="invalid"
+            >
               개인정보 수집 및 이용에 동의해주세요.
             </Form.Control.Feedback>
           )}
         </Col>
       </Row>
       <Row className="justify-content-center">
-        <Col md={6} xs={12} className="mb-3 d-flex justify-content-end">
-          {' '}
-          {/* 변경: xs 속성 추가 */}
+        <Col md={4} xs={10} className="d-flex justify-content-center">
           <Button
-            className="btn-sm text-dark"
+            className="text-dark"
             type="submit"
             style={{
-              backgroundColor: '#FFA500', // kb 색상
+              height: '38px',
+              width: '100%',
+              maxWidth: '100%',
+              padding: '6px 12px',
+              fontSize: '14px',
+              fontFamily: 'KBFGB',
+              backgroundColor: '#FFD85A', // kb 색상
               border: 'none', // 테두리 제거
             }}
           >

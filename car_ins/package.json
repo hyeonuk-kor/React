@@ -2,7 +2,7 @@
   "name": "car_ins",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://fermi.co.kr/kbds/v2",
+  "homepage": "https://fermi.co.kr/kbds/v2",
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@testing-library/jest-dom": "^5.16.5",
@@ -16,7 +16,7 @@
     "react-dom": "^16.14.0",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
-    "styled-components": "^5.3.9",
+    "styled-components": "^5.3.10",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
