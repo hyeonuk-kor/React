@@ -293,7 +293,7 @@ function Step1() {
                 width: '20px',
                 height: '20px',
                 backgroundColor: isChecked ? '#FFBC00' : 'transparent',
-                border: isChecked ? 'none' : '1px solid #FFBC00',
+                border: isChecked ? 'none' : '1px solid gray',
                 borderRadius: '4px',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
