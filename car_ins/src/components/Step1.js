@@ -12,6 +12,8 @@ function Step1() {
   const [invalidAgreement, setInvalidAgreement] = useState(null);
   const [jumin, setJumin] = useState('');
   const [realJumin, setRealJumin] = useState('');
+  const [isChecked, setIsChecked] = useState(false);
+
   const navigate = useNavigate();
   useEffect(() => {
     const carYears = [];
@@ -21,6 +23,11 @@ function Step1() {
     carYears.push('10년 이상');
     setCarYearOptions(carYears);
   }, []);
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+    setInvalidAgreement(isChecked);
+  };
   const saveJumin = (event) => {
     const maxLength = 14;
     if (event.key === '-' || (event.key >= '0' && event.key <= '9')) {
@@ -81,9 +88,6 @@ function Step1() {
       setInvalidCar(false);
     }
   };
-  const handleAgreementChange = (event) => {
-    setInvalidAgreement(!event.target.checked);
-  };
   const handleSubmit = (event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -123,7 +127,7 @@ function Step1() {
           </picture>
         </Col>
       </Row>
-      <Row className="d-flex justify-content-center">
+      <Row className="d-flex justify-content-center ">
         <Col md={4} xs={10} className="mb-2">
           <Form.Control
             type="text"
@@ -135,7 +139,22 @@ function Step1() {
             isInvalid={invalidName}
             isValid={invalidName === false}
             onChange={handleNameChange}
-            style={{ backgroundColor: '#F7F7F7' }}
+            style={{
+              backgroundColor: '#F7F7F7', //gray
+              border: invalidName == '' ? '1px solid #FFBC00' : '',
+              boxShadow: invalidName == '' ? '0 0 0 0.2rem #FFBC00' : 'none',
+              backgroundImage:
+                invalidName == ''
+                  ? `url(${process.env.PUBLIC_URL}/체크-y.png)`
+                  : '',
+              backgroundRepeat: invalidName ? '' : 'no-repeat',
+              backgroundPosition: invalidName
+                ? ''
+                : 'center right calc(0.375em + 0.1875rem)',
+              backgroundSize: invalidName
+                ? ''
+                : 'calc(0.75em + 0.375rem) calc(0.75em + 0.375rem)',
+            }}
           />
           <Form.Control.Feedback type="invalid">
             이름을 입력해주세요.
@@ -157,7 +176,22 @@ function Step1() {
             isValid={invalidJumin === false}
             onKeyDown={saveJumin}
             onChange={handleJuminChange}
-            style={{ backgroundColor: '#F7F7F7' }}
+            style={{
+              backgroundColor: '#F7F7F7',
+              border: invalidJumin == '' ? '1px solid #FFBC00' : '',
+              boxShadow: invalidJumin == '' ? '0 0 0 0.2rem #FFBC00' : 'none',
+              backgroundImage:
+                invalidJumin == ''
+                  ? `url(${process.env.PUBLIC_URL}/체크-y.png)`
+                  : '',
+              backgroundRepeat: invalidJumin ? '' : 'no-repeat',
+              backgroundPosition: invalidJumin
+                ? ''
+                : 'center right calc(0.375em + 0.1875rem)',
+              backgroundSize: invalidJumin
+                ? ''
+                : 'calc(0.75em + 0.375rem) calc(0.75em + 0.375rem)',
+            }}
           />
           <Form.Control.Feedback type="invalid">
             주민등록번호를 입력해주세요.
@@ -175,7 +209,22 @@ function Step1() {
             isInvalid={invalidCar}
             isValid={invalidCar === false}
             onChange={handleCarChange}
-            style={{ backgroundColor: '#F7F7F7' }}
+            style={{
+              backgroundColor: '#F7F7F7',
+              border: invalidCar == '' ? '1px solid #FFBC00' : '',
+              boxShadow: invalidCar == '' ? '0 0 0 0.2rem #FFBC00' : 'none',
+              backgroundImage:
+                invalidCar == ''
+                  ? `url(${process.env.PUBLIC_URL}/체크-y.png)`
+                  : '',
+              backgroundRepeat: invalidCar ? '' : 'no-repeat',
+              backgroundPosition: invalidCar
+                ? ''
+                : 'center right calc(0.375em + 0.1875rem)',
+              backgroundSize: invalidCar
+                ? ''
+                : 'calc(0.75em + 0.375rem) calc(0.75em + 0.375rem)',
+            }}
           />
           <Form.Control.Feedback type="invalid">
             자동차를 입력해주세요.
@@ -190,28 +239,33 @@ function Step1() {
               name="car_year"
               id="year"
               style={{
-                color: carYear === '' ? '#6c757d' : '#212529',
+                color: invalidCarYear == '' ? 'black' : '#6C757D',
                 backgroundColor: '#F7F7F7',
+                border: invalidCarYear == '' ? '1px solid #FFBC00' : '',
+                boxShadow:
+                  invalidCarYear == '' ? '0 0 0 0.2rem #FFBC00' : 'none',
+                backgroundImage:
+                  invalidCarYear == ''
+                    ? `url(${process.env.PUBLIC_URL}/체크-y.png)`
+                    : '',
+                backgroundRepeat: invalidCarYear ? '' : 'no-repeat',
+                backgroundPosition: invalidCarYear
+                  ? ''
+                  : 'center right calc(0.375em + 0.1875rem)',
+                backgroundSize: invalidCarYear
+                  ? ''
+                  : 'calc(0.75em + 0.375rem) calc(0.75em + 0.375rem)',
               }}
               value={carYear}
               onChange={handleCarYearChange}
               required
               isInvalid={invalidCarYear}
             >
-              <option
-                value=""
-                disabled
-                hidden
-                style={{ backgroundColor: '#F7F7F7' }}
-              >
+              <option value="" disabled hidden>
                 연식
               </option>
               {carYearOptions.map((year, index) => (
-                <option
-                  key={index}
-                  value={year}
-                  style={{ backgroundColor: '#F7F7F7' }}
-                >
+                <option key={index} value={year} style={{ color: 'black' }}>
                   {year}
                 </option>
               ))}
@@ -228,12 +282,25 @@ function Step1() {
             controlId="agreement"
             className="d-flex align-items-center justify-content-center"
           >
-            <Form.Check
+            <input
+              required=""
               type="checkbox"
-              className="custom-control-input"
-              required
-              checked={invalidAgreement === false}
-              onChange={handleAgreementChange}
+              id="agreement"
+              checked={isChecked}
+              onChange={handleCheckboxChange}
+              style={{
+                appearance: 'none',
+                width: '20px',
+                height: '20px',
+                backgroundColor: isChecked ? '#FFBC00' : 'transparent',
+                border: isChecked ? 'none' : '1px solid #FFBC00',
+                borderRadius: '4px',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                backgroundSize: 'contain',
+                outline: 'none',
+                cursor: 'pointer',
+              }}
             />
             <Form.Label
               className="custom-control-label"
