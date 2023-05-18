@@ -18,8 +18,15 @@ function App() {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
+      backgroundColor: 'white', // 기본 배경색
     },
   };
+
+  const currentPath = window.location.pathname;
+
+  if (currentPath === '/kbds/v2/step2' || currentPath === '/kbds/v2/step3') {
+    styles.container.backgroundColor = '#F7F7F7'; // gray 배경색
+  }
 
   return (
     <Container style={styles.container}>
