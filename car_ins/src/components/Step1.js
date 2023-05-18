@@ -24,6 +24,29 @@ function Step1() {
     setCarYearOptions(carYears);
   }, []);
 
+  const submitButtonStyle = {
+    height: '38px',
+    width: '100%',
+    maxWidth: '100%',
+    padding: '6px 12px',
+    fontSize: '14px',
+    fontFamily: 'KBFGB',
+    backgroundColor:
+      invalidCar !== null &&
+      !invalidCar &&
+      invalidCarYear !== null &&
+      !invalidCarYear &&
+      invalidJumin !== null &&
+      !invalidJumin &&
+      invalidName !== null &&
+      !invalidName &&
+      invalidAgreement !== null &&
+      !invalidAgreement
+        ? '#FFD85A'
+        : '#6C757D',
+    border: 'none',
+  };
+
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
     setInvalidAgreement(isChecked);
@@ -92,13 +115,16 @@ function Step1() {
     event.preventDefault();
     event.stopPropagation();
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
+    if (form.checkValidity() === false || !isChecked) {
       form.classList.add('was-validated');
-      if (!form.elements.agreement.checked) {
+      if (!isChecked) {
         setInvalidAgreement(true);
       }
     } else {
       localStorage.setItem('name', form.elements.name.value);
+      localStorage.setItem('pnum', form.elements.pnum.value.substring(0, 6));
+      localStorage.setItem('car', form.elements.car.value);
+      localStorage.setItem('caryear', form.elements.car_year.value);
       navigate('/kbds/v2/step2');
     }
   };
@@ -321,20 +347,7 @@ function Step1() {
       </Row>
       <Row className="justify-content-center">
         <Col md={4} xs={10} className="d-flex justify-content-center">
-          <Button
-            className="text-dark"
-            type="submit"
-            style={{
-              height: '38px',
-              width: '100%',
-              maxWidth: '100%',
-              padding: '6px 12px',
-              fontSize: '14px',
-              fontFamily: 'KBFGB',
-              backgroundColor: '#FFD85A', // kb 색상
-              border: 'none', // 테두리 제거
-            }}
-          >
+          <Button className="text-dark" type="submit" style={submitButtonStyle}>
             금액확인
           </Button>
         </Col>
