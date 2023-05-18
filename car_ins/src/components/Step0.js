@@ -6,7 +6,7 @@ function Step0() {
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
-    navigate('/kbds/v2/step1');
+    navigate('/step1');
   };
   const styles = {
     li: {

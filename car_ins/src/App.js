@@ -6,7 +6,7 @@ import Step1 from './components/Step1';
 import Step2 from './components/Step2';
 import Step3 from './components/Step3';
 import Step4 from './components/Step4';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   const windowSize = useWindowSize();
@@ -22,9 +22,9 @@ function App() {
     },
   };
 
-  const currentPath = window.location.pathname;
+  const currentPath = window.location.hash;
 
-  if (currentPath === '/kbds/v2/step2' || currentPath === '/kbds/v2/step3') {
+  if (currentPath === '#/step2' || currentPath === '#/step3') {
     styles.container.backgroundColor = '#F7F7F7'; // gray 배경색
   }
 
@@ -32,11 +32,11 @@ function App() {
     <Container style={styles.container}>
       <Router>
         <Routes>
-          <Route path="/kbds/v2/" element={<Step0 />} />
-          <Route path="/kbds/v2/step1" element={<Step1 />} />
-          <Route path="/kbds/v2/step2" element={<Step2 />} />
-          <Route path="/kbds/v2/step3" element={<Step3 />} />
-          <Route path="/kbds/v2/step4" element={<Step4 />} />
+          <Route path="/" element={<Step0 />} />
+          <Route path="/step1" element={<Step1 />} />
+          <Route path="/step2" element={<Step2 />} />
+          <Route path="/step3" element={<Step3 />} />
+          <Route path="/step4" element={<Step4 />} />
         </Routes>
       </Router>
     </Container>

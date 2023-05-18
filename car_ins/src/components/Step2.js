@@ -16,7 +16,7 @@ function Step2() {
     event.preventDefault();
     event.stopPropagation();
     if (selectedOption !== null) {
-      navigate('/kbds/v2/step3');
+      navigate('/step3');
     } else {
       setShowFeedback(true);
     }

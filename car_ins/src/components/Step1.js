@@ -5,24 +5,13 @@ import { useNavigate } from 'react-router-dom';
 function Step1() {
   const [carYear, setCarYear] = useState('');
   const [invalidCarYear, setInvalidCarYear] = useState(null);
-  const [carYearOptions, setCarYearOptions] = useState([]);
   const [invalidName, setInvalidName] = useState(null);
   const [invalidCar, setInvalidCar] = useState(null);
   const [invalidJumin, setInvalidJumin] = useState(null);
   const [invalidAgreement, setInvalidAgreement] = useState(null);
-  const [jumin, setJumin] = useState('');
-  const [realJumin, setRealJumin] = useState('');
   const [isChecked, setIsChecked] = useState(false);
 
   const navigate = useNavigate();
-  useEffect(() => {
-    const carYears = [];
-    for (let i = 1; i <= 9; i++) {
-      carYears.push(i + '년');
-    }
-    carYears.push('10년 이상');
-    setCarYearOptions(carYears);
-  }, []);
 
   const submitButtonStyle = {
     height: '38px',
@@ -47,41 +36,12 @@ function Step1() {
     border: 'none',
   };
 
-  const handleCheckboxChange = () => {
+  const handleCheckboxChange = (event) => {
     setIsChecked(!isChecked);
     setInvalidAgreement(isChecked);
   };
-  const saveJumin = (event) => {
-    const maxLength = 14;
-    if (event.key === '-' || (event.key >= '0' && event.key <= '9')) {
-      const input = realJumin + event.key;
-      if (input.length <= maxLength) {
-        setRealJumin(input);
-      }
-    } else if (event.key === 'Backspace' || event.key === 'Delete') {
-      const input = realJumin.slice(0, -1);
-      setRealJumin(input);
-    }
-  };
   const handleJuminChange = (event) => {
-    const maskingSymbol = '\u25CF'; // 마스킹 기호 문자열
-    let input = event.target.value;
-    input = input.replace('-', '');
-    if (input.length > 6) {
-      const ju1 = input.substring(0, 6);
-      let ju2 = input.substring(6, 7);
-
-      for (let i = 1; i < input.substring(6).length && i < 7; i++) {
-        ju2 = ju2 + maskingSymbol;
-      }
-
-      input = ju1 + '-' + ju2;
-    }
-
-    setJumin(input);
-    setRealJumin(input.replace('-', ''));
-
-    if (jumin.length !== 13) {
+    if (event.target.value === '') {
       setInvalidJumin(true);
     } else {
       setInvalidJumin(false);
@@ -97,7 +57,6 @@ function Step1() {
   const handleCarYearChange = (event) => {
     const selectedYear = event.target.value;
     setCarYear(selectedYear);
-
     if (selectedYear === '') {
       setInvalidCarYear(true);
     } else {
@@ -125,7 +84,7 @@ function Step1() {
       localStorage.setItem('pnum', form.elements.pnum.value.substring(0, 6));
       localStorage.setItem('car', form.elements.car.value);
       localStorage.setItem('caryear', form.elements.car_year.value);
-      navigate('/kbds/v2/step2');
+      navigate('/step2');
     }
   };
   return (
@@ -193,14 +152,12 @@ function Step1() {
             type="text"
             id="pnum"
             name="pnum"
-            value={jumin}
-            minLength="14"
-            maxLength="14"
-            placeholder="주민등록번호"
+            minLength="6"
+            maxLength="6"
+            placeholder="생년월일"
             required
             isInvalid={invalidJumin}
             isValid={invalidJumin === false}
-            onKeyDown={saveJumin}
             onChange={handleJuminChange}
             style={{
               backgroundColor: '#F7F7F7',
@@ -220,7 +177,7 @@ function Step1() {
             }}
           />
           <Form.Control.Feedback type="invalid">
-            주민등록번호를 입력해주세요.
+            생년월일을 입력해주세요.
           </Form.Control.Feedback>
         </Col>
       </Row>
@@ -290,11 +247,41 @@ function Step1() {
               <option value="" disabled hidden>
                 연식
               </option>
-              {carYearOptions.map((year, index) => (
+              <option value="1년" style={{ color: 'black' }}>
+                1년
+              </option>
+              <option value="2년" style={{ color: 'black' }}>
+                2년
+              </option>
+              <option value="3년" style={{ color: 'black' }}>
+                3년
+              </option>
+              <option value="4년" style={{ color: 'black' }}>
+                4년
+              </option>
+              <option value="5년" style={{ color: 'black' }}>
+                5년
+              </option>
+              <option value="6년" style={{ color: 'black' }}>
+                6년
+              </option>
+              <option value="7년" style={{ color: 'black' }}>
+                7년
+              </option>
+              <option value="8년" style={{ color: 'black' }}>
+                8년
+              </option>
+              <option value="9년" style={{ color: 'black' }}>
+                9년
+              </option>
+              <option value="10년 이상" style={{ color: 'black' }}>
+                10년 이상
+              </option>
+              {/*     {carYearOptions.map((year, index) => (
                 <option key={index} value={year} style={{ color: 'black' }}>
                   {year}
                 </option>
-              ))}
+              ))} */}
             </Form.Control>
             <Form.Control.Feedback type="invalid">
               연식을 선택해주세요.

@@ -7,7 +7,7 @@ const Step3 = () => {
   const navigate = useNavigate();
 
   const handleSign = () => {
-    navigate('/kbds/v2/step4');
+    navigate('/step4');
   };
 
   return (
