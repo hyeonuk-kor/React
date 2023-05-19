@@ -28,17 +28,10 @@ function Step1() {
       invalidJumin !== null &&
       !invalidJumin &&
       invalidName !== null &&
-      !invalidName &&
-      invalidAgreement !== null &&
-      !invalidAgreement
+      !invalidName
         ? '#FFD85A'
         : '#6C757D',
     border: 'none',
-  };
-
-  const handleCheckboxChange = (event) => {
-    setIsChecked(!isChecked);
-    setInvalidAgreement(isChecked);
   };
   const handleJuminChange = (event) => {
     if (event.target.value === '') {
@@ -74,11 +67,8 @@ function Step1() {
     event.preventDefault();
     event.stopPropagation();
     const form = event.currentTarget;
-    if (form.checkValidity() === false || !isChecked) {
+    if (form.checkValidity() === false) {
       form.classList.add('was-validated');
-      if (!isChecked) {
-        setInvalidAgreement(true);
-      }
     } else {
       localStorage.setItem('name', form.elements.name.value);
       localStorage.setItem('pnum', form.elements.pnum.value.substring(0, 6));
@@ -152,8 +142,6 @@ function Step1() {
             type="text"
             id="pnum"
             name="pnum"
-            minLength="6"
-            maxLength="6"
             placeholder="생년월일"
             required
             isInvalid={invalidJumin}
@@ -289,53 +277,10 @@ function Step1() {
           </Form.Group>
         </Col>
       </Row>
-      <Row className="d-flex justify-content-center">
-        <Col md={4} xs={12} className="mb-2">
-          <Form.Group
-            controlId="agreement"
-            className="d-flex align-items-center justify-content-center"
-          >
-            <input
-              required=""
-              type="checkbox"
-              id="agreement"
-              checked={isChecked}
-              onChange={handleCheckboxChange}
-              style={{
-                appearance: 'none',
-                width: '20px',
-                height: '20px',
-                backgroundColor: isChecked ? '#FFBC00' : 'transparent',
-                border: isChecked ? 'none' : '1px solid gray',
-                borderRadius: '4px',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                backgroundSize: 'contain',
-                outline: 'none',
-                cursor: 'pointer',
-              }}
-            />
-            <Form.Label
-              className="custom-control-label"
-              style={{ margin: '0 0 0 5px' }}
-            >
-              개인정보 수집 및 이용에 동의합니다.
-            </Form.Label>
-          </Form.Group>
-          {invalidAgreement === true && (
-            <Form.Control.Feedback
-              className="d-block text-center"
-              type="invalid"
-            >
-              개인정보 수집 및 이용에 동의해주세요.
-            </Form.Control.Feedback>
-          )}
-        </Col>
-      </Row>
       <Row className="justify-content-center">
         <Col md={4} xs={10} className="d-flex justify-content-center">
           <Button className="text-dark" type="submit" style={submitButtonStyle}>
-            금액확인
+            보험료 확인
           </Button>
         </Col>
       </Row>

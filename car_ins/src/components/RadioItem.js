@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
+import '../radio.css'; // CSS 파일 import
 
 function RadioItem({
   label,
@@ -11,12 +12,12 @@ function RadioItem({
   onChange,
 }) {
   const cardStyles = {
-    width: '100%',
+    width: '90%',
     padding: '10px',
     cursor: 'pointer',
     backgroundColor: 'white',
-    borderRadius: '10px',
-    margin: '0px',
+    borderRadius: '15px',
+    marginLeft: '20px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -26,6 +27,7 @@ function RadioItem({
     fontSize: '16px',
     fontWeight: 'bold',
     margin: 0,
+    marginLeft: '10px',
   };
 
   const listStyles = {
@@ -33,22 +35,29 @@ function RadioItem({
     margin: 0,
     padding: 0,
     marginTop: '10px',
+    marginLeft: '10px',
   };
 
   return (
     <Row className="justify-content-center">
-      <Col xs={12} sm={8} md={6} lg={4} style={{ padding: '10px' }}>
-        <label style={cardStyles}>
+      <Col
+        className="align-items-center"
+        xs={12}
+        sm={8}
+        md={6}
+        lg={4}
+        style={{ padding: '10px' }}
+      >
+        <label style={cardStyles} onClick={onChange}>
+          {' '}
+          {/* onClick 이벤트를 label로 이동 */}
           <Row className="justify-content-center align-items-center">
             <Col xs={1}>
-              <input
-                type="radio"
-                name="radio-group"
-                checked={checked}
-                onChange={onChange}
-              />
+              <div className={`radio ${checked ? 'checked' : ''}`}>
+                {checked && <div className="dot"></div>}
+              </div>
             </Col>
-            <Col xs={7} className="text-left">
+            <Col xs={6} className="text-left">
               <p style={titleStyles}>{label}</p>
               <ul style={listStyles}>
                 <li>기간: ~ {duration}</li>
@@ -59,9 +68,9 @@ function RadioItem({
             <Col
               xs={4}
               className="d-flex align-items-center justify-content-center"
-              style={{
-                height: '100%',
-              }}
+              // style={{
+              //   height: '100%',
+              // }}
             >
               <img
                 src={imageSrc}

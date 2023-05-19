@@ -1,0 +1,22 @@
+.radio {
+    width: 18px;
+    height: 18px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+  
+.radio.checked {
+    background-color: white;
+    border-color: #FFD85A;
+}
+  
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #FFD85A;
+    border-radius: 50%;
+}

@@ -16,6 +16,7 @@ function Step2() {
     event.preventDefault();
     event.stopPropagation();
     if (selectedOption !== null) {
+      localStorage.setItem('prod', selectedOption); // Store selected option in localStorage
       navigate('/step3');
     } else {
       setShowFeedback(true);
@@ -24,12 +25,14 @@ function Step2() {
 
   return (
     <Form noValidate onSubmit={handleSubmit}>
-      <Row className="align-items-center mb-4">
+      <Row className="align-items-center mb-4 mt-2">
         <Col md={6} className="d-flex justify-content-center">
-          <p className="h3 mb-0 text-center">나를 위한 1:1 맞춤 상품</p>
+          <h2>
+            <strong>나를 위한 1:1 맞춤 상품</strong>
+          </h2>
         </Col>
       </Row>
-      <Row className="align-items-center mb-4">
+      <Row className="align-items-center mb-2">
         <Col md={6} className="d-flex justify-content-center">
           <RadioItem
             label="10년 만기 상품"
@@ -42,17 +45,18 @@ function Step2() {
             })}
             refund="95,497원"
             rate="8%"
-            imageSrc={process.env.PUBLIC_URL + '/carBg1.png'}
+            imageSrc={process.env.PUBLIC_URL + '/10-d.png'}
             checked={selectedOption === 'option1'}
             onChange={() => {
               if (selectedOption !== 'option1') {
                 handleOptionChange('option1');
               }
             }}
+            style={{ backgroundColor: 'red' }}
           />
         </Col>
       </Row>
-      <Row className="align-items-center mb-4">
+      <Row className="align-items-center mb-2">
         <Col md={6} className="d-flex justify-content-center">
           <RadioItem
             label="15년 만기 상품"
@@ -65,7 +69,7 @@ function Step2() {
             })}
             refund="222,470원"
             rate="9%"
-            imageSrc={process.env.PUBLIC_URL + '/carBg11.png'}
+            imageSrc={process.env.PUBLIC_URL + '/15-d.png'}
             checked={selectedOption === 'option2'}
             onChange={() => {
               if (selectedOption !== 'option2') {
@@ -75,7 +79,7 @@ function Step2() {
           />
         </Col>
       </Row>
-      <Row className="align-items-center mb-4">
+      <Row className="align-items-center mb-2">
         <Col md={6} className="d-flex justify-content-center">
           <RadioItem
             label="20년 만기 상품"
@@ -88,7 +92,7 @@ function Step2() {
             })}
             refund="380,160원"
             rate="12%"
-            imageSrc={process.env.PUBLIC_URL + '/carBg111.png'}
+            imageSrc={process.env.PUBLIC_URL + '/20-d.png'}
             checked={selectedOption === 'option3'}
             onChange={() => {
               if (selectedOption !== 'option3') {
@@ -98,7 +102,7 @@ function Step2() {
           />
         </Col>
       </Row>
-      <Row className="align-items-center mb-4">
+      <Row className="align-items-center mb-2">
         <Col md={6} className="d-flex justify-content-center">
           {showFeedback && (
             <Form.Control.Feedback
