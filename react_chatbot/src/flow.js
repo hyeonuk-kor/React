@@ -19,8 +19,7 @@ let step = [
   },
   {
     id: "3",
-    message:
-      "안녕하세요 {previousValue} 고객님,      아래 정보를 클릭해주세요.",
+    message: "안녕하세요 이도형 고객님,      아래 정보를 클릭해주세요.",
     trigger: "성별",
   },
   {

@@ -101,7 +101,7 @@ function Step3() {
               }}
             >
               <Card.Img
-                src={process.env.PUBLIC_URL + '/디자인-27.png'}
+                src={process.env.PUBLIC_URL + '/d-27.png'}
                 style={imageStyle}
               />
               <Card.Title style={{ fontSize: '18px', marginBottom: '0' }}>
@@ -153,7 +153,7 @@ function Step3() {
               }}
             >
               <Card.Img
-                src={process.env.PUBLIC_URL + '/디자인-28.png'}
+                src={process.env.PUBLIC_URL + '/d-28.png'}
                 style={imageStyle}
               />
               <Card.Title style={{ fontSize: '18px', marginBottom: '0' }}>

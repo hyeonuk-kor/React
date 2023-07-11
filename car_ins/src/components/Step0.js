@@ -32,7 +32,7 @@ function Step0() {
         <Col md={6}>
           <div style={{ marginLeft: '20px' }}>
             <p className="h3 mb-0">나를 위한 1:1 맞춤 컨설팅</p>
-            <h2 className="mb-0 fw-bold">KB 자동차보험</h2>
+            <h2 className="mb-0 fw-bold">KB 운전자보험</h2>
           </div>
           <br></br>
           <picture>

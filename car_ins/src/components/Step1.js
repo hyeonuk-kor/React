@@ -21,7 +21,7 @@ function Step1() {
     fontSize: '14px',
     fontFamily: 'KBFGB',
     backgroundColor:
-      invalidCar !== null &&
+      /*   invalidCar !== null &&
       !invalidCar &&
       invalidCarYear !== null &&
       !invalidCarYear &&
@@ -30,7 +30,8 @@ function Step1() {
       invalidName !== null &&
       !invalidName
         ? '#FFD85A'
-        : '#6C757D',
+        : '#6C757D', */
+      '#FFD85A',
     border: 'none',
   };
   const handleJuminChange = (event) => {
@@ -95,7 +96,7 @@ function Step1() {
         <Col md={4} xs={12} className="mb-2 text-center">
           <picture>
             <img
-              src={process.env.PUBLIC_URL + '/디자인-11.png'}
+              src={process.env.PUBLIC_URL + '/d-11.png'}
               alt="Alternative text for the image"
               style={{ width: '30%', height: 'auto' }}
             />
@@ -120,7 +121,7 @@ function Step1() {
               boxShadow: invalidName == '' ? '0 0 0 0.2rem #FFBC00' : 'none',
               backgroundImage:
                 invalidName == ''
-                  ? `url(${process.env.PUBLIC_URL}/체크-y.png)`
+                  ? `url(${process.env.PUBLIC_URL}/c-y.png)`
                   : '',
               backgroundRepeat: invalidName ? '' : 'no-repeat',
               backgroundPosition: invalidName
@@ -153,7 +154,7 @@ function Step1() {
               boxShadow: invalidJumin == '' ? '0 0 0 0.2rem #FFBC00' : 'none',
               backgroundImage:
                 invalidJumin == ''
-                  ? `url(${process.env.PUBLIC_URL}/체크-y.png)`
+                  ? `url(${process.env.PUBLIC_URL}/c-y.png)`
                   : '',
               backgroundRepeat: invalidJumin ? '' : 'no-repeat',
               backgroundPosition: invalidJumin
@@ -186,7 +187,7 @@ function Step1() {
               boxShadow: invalidCar == '' ? '0 0 0 0.2rem #FFBC00' : 'none',
               backgroundImage:
                 invalidCar == ''
-                  ? `url(${process.env.PUBLIC_URL}/체크-y.png)`
+                  ? `url(${process.env.PUBLIC_URL}/c-y.png)`
                   : '',
               backgroundRepeat: invalidCar ? '' : 'no-repeat',
               backgroundPosition: invalidCar
@@ -217,7 +218,7 @@ function Step1() {
                   invalidCarYear == '' ? '0 0 0 0.2rem #FFBC00' : 'none',
                 backgroundImage:
                   invalidCarYear == ''
-                    ? `url(${process.env.PUBLIC_URL}/체크-y.png)`
+                    ? `url(${process.env.PUBLIC_URL}/c-y.png)`
                     : '',
                 backgroundRepeat: invalidCarYear ? '' : 'no-repeat',
                 backgroundPosition: invalidCarYear

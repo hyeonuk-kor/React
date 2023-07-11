@@ -26,15 +26,15 @@ class ReviewPerson extends Component {
           <tbody>
             <tr>
               <td>이름</td>
-              <td>{이름.value}</td>
+              <td>이도형</td>
             </tr>
             <tr>
               <td>성별</td>
-              <td>{성별.value}</td>
+              <td>남자</td>
             </tr>
             <tr>
               <td>나이</td>
-              <td>{나이.value}</td>
+              <td>55</td>
             </tr>
           </tbody>
         </table>

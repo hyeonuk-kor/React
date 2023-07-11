@@ -50,7 +50,7 @@ class ReviewPrice extends Component {
           <tbody style={{ textAlign: "center" }}>
             <tr>
               <td>이름</td>
-              <td>{이름.value}</td>
+              <td>이도형</td>
             </tr>
             <tr>
               <td>보험료</td>
@@ -58,7 +58,7 @@ class ReviewPrice extends Component {
             </tr>
             <tr>
               <td>보험나이</td>
-              <td>{나이.value + "세 " + 성별.value}</td>
+              <td>{55 + "세 남자"}</td>
             </tr>
 
             <tr>
